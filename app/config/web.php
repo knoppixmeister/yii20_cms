@@ -9,7 +9,7 @@
 	    'bootstrap'		=>	['log'],
 	    'modules'		=>	[],
 		'language'		=>	'en-US',
-		'vendorPath'	=>	__DIR__.'/../../../app/vendor',
+		//'vendorPath'	=>	__DIR__.'/../../../app/vendor',
 		//'defaultRoute'	=>	'site/index',
 	    'components'	=>	[
 	    	'db'			=>	require __DIR__.'/db.php',
