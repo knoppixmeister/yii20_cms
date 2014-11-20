@@ -71,7 +71,12 @@
 		*/
 		public function actionIndex() {
 			//if(\Yii::$app->getUser()->isGuest)
+			//return $this->render('index', []);
 
+			$this->redirect(Url::to(['/ru']));
+		}
+
+		public function actionHome() {
 			return $this->render('index', []);
 		}
 
@@ -89,6 +94,11 @@
 	        \Yii::$app->user->logout();
 
 	        return $this->goHome();
+		}
+
+		public function actionRegister() {
+
+			return $this->render('register', []);
 		}
 
 		public function actionContact() {

@@ -43,14 +43,13 @@
             echo Nav::widget([
 	            		'options'	=>	['class' => 'navbar-nav navbar-right'],
 	            		'items' 	=>	[
-	            							['label' => 'Account', 'url' => ['/account']],
 				            				Yii::$app->user->isGuest ?
-				            				['label' => 'Login', 'url' => ['/login']] :
+				            				['label' => 'Login', 'url' => ['/ru/login']] :
 				            				[
 				            					'label'	=>	'Logout ('.\Yii::$app->user->identity->username.')',
-				            					'url'	=>	['/logout'],
+				            					'url'	=>	['/ru/logout'],
 				            				],
-	            							['label' => 'Register', 'url' => ['/register']],
+	            							['label' => 'Register', 'url' => ['/ru/register']],
 	            						],
             ]);
 			NavBar::end();

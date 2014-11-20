@@ -31,12 +31,12 @@
 					'http://<subdomain:([a-z0-9-_]+)>.server.com/<action>/?'		=>	'sub/<action>',
 					'http://<subdomain:([a-z0-9-_]+)>.server.com/<action>/<id:\d+>'	=>	'sub/<action>',
 
-					'<language:('.$languages.')>/<action:(login|logout|contact)>'	=>	'site/<action>',
+					'<language:('.$languages.')>/<action:(login|logout|contact|register)>'	=>	'site/<action>',
 
     				'<language:('.$languages.')>/<controller>/<action>/<id:\d+>'	=>	'module/<controller>/<action>',
     				'<language:('.$languages.')>/<controller>/<action>'				=>	'module/<controller>/<action>',
     				'<language:('.$languages.')>/<controller>/?'					=>	'module/<controller>',
-    				'<language:('.$languages.')>/?'									=>	'module',
+    				'<language:('.$languages.')>/?'									=>	'site/home',
 					'/'																=>	'site',
 
 					'sitemap.xml'													=>	'sitemap',
