@@ -56,19 +56,21 @@
 			*/
 			return $config;
 		}
-		/*
+		
 		public function actions() {
 			return [
 	            'error' => [
 	                'class' => 'yii\web\ErrorAction',
 	            ],
+				/*
 	            'captcha' => [
 	                'class' 			=>	'yii\captcha\CaptchaAction',
 	                'fixedVerifyCode'	=>	true ? 'testme' : null,
 	            ],
+	            */
 	        ];
 		}
-		*/
+		
 		public function actionIndex() {
 			//if(\Yii::$app->getUser()->isGuest)
 			//return $this->render('index', []);
