@@ -73,7 +73,7 @@
 			//if(\Yii::$app->getUser()->isGuest) return $this->render('index', []);
 			//else $this->redirect(Url::to(['/dashboard']));
 
-			$this->redirect(Url::to(['/ru']));
+			echo 'site index content';
 		}
 
 		public function actionLogin() {
