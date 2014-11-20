@@ -60,7 +60,7 @@
 
     				'<language:('.$languages.')>/<controller>/<action>/<id:\d+>'	=>	'module/<controller>/<action>',
     				'<language:('.$languages.')>/<controller>/<action>'				=>	'module/<controller>/<action>',
-    				'<language:('.$languages.')>/<module>'							=>	'<module>',
+    				'<language:('.$languages.')>/<module>/?'						=>	'<module>',
     				'<language:('.$languages.')>/?'									=>	'site/home',
 					'/'																=>	'site',
 
