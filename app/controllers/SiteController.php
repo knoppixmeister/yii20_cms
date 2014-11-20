@@ -70,10 +70,9 @@
 		}
 		*/
 		public function actionIndex() {
-			//if(\Yii::$app->getUser()->isGuest) return $this->render('index', []);
-			//else $this->redirect(Url::to(['/dashboard']));
+			//if(\Yii::$app->getUser()->isGuest)
 
-			echo 'site index content';
+			return $this->render('index', []);
 		}
 
 		public function actionLogin() {
