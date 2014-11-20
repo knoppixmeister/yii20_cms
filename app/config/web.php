@@ -3,11 +3,36 @@
 
 	$languages = 'ru|en';
 
+	$modules = [];
+	if($dres = opendir(__DIR__."/../modules")) {
+		while(false !== ($entry = readdir($dres))) {
+			if($entry != '.' && $entry != ".." && is_dir(__DIR__."/../modules/".$entry)) {
+				$modules[$entry] =	[
+					'class'	=>	"app\modules\\".$entry."\Module",
+				];
+			}
+		}
+	}
+
+	/*
+	if(is_dir(Yii::getPathOfAlias('user_modules'))) {
+		if($dres = opendir(Yii::getPathOfAlias('user_modules'))) {
+			while(false !== ($entry = readdir($dres))) {
+				if($entry != '.' && $entry != ".." && is_dir(Yii::getPathOfAlias('user_modules')."/".$entry)) {
+					$modules[$entry] =	array(
+							'class'	=> 'user_modules.'.$entry.".".ucfirst($entry)."Module",
+					);
+				}
+			}
+		}
+	}
+	*/
+
 	$config = [
 	    'id'			=>	'...-web-app',
 	    'basePath'		=>	dirname(__DIR__),
 	    'bootstrap'		=>	['log'],
-	    'modules'		=>	[],
+	    'modules'		=>	$modules,
 		'language'		=>	'en-US',
 		//'vendorPath'	=>	__DIR__.'/../../../app/vendor',
 		//'defaultRoute'	=>	'site/index',
@@ -35,7 +60,7 @@
 
     				'<language:('.$languages.')>/<controller>/<action>/<id:\d+>'	=>	'module/<controller>/<action>',
     				'<language:('.$languages.')>/<controller>/<action>'				=>	'module/<controller>/<action>',
-    				'<language:('.$languages.')>/<controller>/?'					=>	'module/<controller>',
+    				'<language:('.$languages.')>/<module>'							=>	'<module>',
     				'<language:('.$languages.')>/?'									=>	'site/home',
 					'/'																=>	'site',
 
