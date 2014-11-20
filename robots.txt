@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+#Disallow: /lala*
+
+#User-Agent: Yandex
+#Allow: /
+#Disallow: /test*
+#Host: server.com
+
+#Sitemap: http://..../sitemap.xml
