@@ -45,6 +45,7 @@
 			],
 			*/
 			'urlManager'	=>	[
+				'class'					=>	'app\components\LangUrlManager',
 				'enablePrettyUrl'		=>	true,
 				'showScriptName'		=>	false,
 				'enableStrictParsing'	=>	true,
