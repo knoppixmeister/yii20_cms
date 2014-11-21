@@ -56,7 +56,7 @@
 			*/
 			return $config;
 		}
-		
+
 		public function actions() {
 			return [
 	            'error' => [
@@ -70,12 +70,12 @@
 	            */
 	        ];
 		}
-		
+
 		public function actionIndex() {
 			//if(\Yii::$app->getUser()->isGuest)
 			//return $this->render('index', []);
 
-			$this->redirect(Url::to(['/ru']));
+			$this->redirect(Url::to(['/']));
 		}
 
 		public function actionHome() {

@@ -44,12 +44,12 @@
 	            		'options'	=>	['class' => 'navbar-nav navbar-right'],
 	            		'items' 	=>	[
 				            				Yii::$app->user->isGuest ?
-				            				['label' => 'Login', 'url' => ['/ru/login']] :
+				            				['label' => 'Login', 'url' => ['/login']] :
 				            				[
 				            					'label'	=>	'Logout ('.\Yii::$app->user->identity->username.')',
-				            					'url'	=>	['/ru/logout'],
+				            					'url'	=>	['/logout'],
 				            				],
-	            							['label' => 'Register', 'url' => ['/ru/register']],
+	            							['label' => 'Register', 'url' => ['/register']],
 	            						],
             ]);
 			NavBar::end();

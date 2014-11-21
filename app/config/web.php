@@ -1,39 +1,33 @@
 <?php
 	defined('YII_APP') || die('Direct access to script denied!');
 
-	$languages = 'ru|en';
+	$_langs = require __DIR__.'/languages.php';
+	$languages = implode('|', array_keys($_langs));
+
+	$_configLanguage = 'en-US';
+	foreach($_langs as $_lang_code => $_lang_vals) {
+		if($_lang_vals['default']) {
+			$_configLanguage = $_lang_vals['local'];
+		}
+	}
 
 	$modules = [];
 	if($dres = opendir(__DIR__."/../modules")) {
 		while(false !== ($entry = readdir($dres))) {
 			if($entry != '.' && $entry != ".." && is_dir(__DIR__."/../modules/".$entry)) {
 				$modules[$entry] =	[
-					'class'	=>	"app\modules\\".$entry."\Module",
+					'class'	=>	"app\\modules\\".$entry."\Module",
 				];
 			}
 		}
 	}
-
-	/*
-	if(is_dir(Yii::getPathOfAlias('user_modules'))) {
-		if($dres = opendir(Yii::getPathOfAlias('user_modules'))) {
-			while(false !== ($entry = readdir($dres))) {
-				if($entry != '.' && $entry != ".." && is_dir(Yii::getPathOfAlias('user_modules')."/".$entry)) {
-					$modules[$entry] =	array(
-							'class'	=> 'user_modules.'.$entry.".".ucfirst($entry)."Module",
-					);
-				}
-			}
-		}
-	}
-	*/
 
 	$config = [
 	    'id'			=>	'...-web-app',
 	    'basePath'		=>	dirname(__DIR__),
 	    'bootstrap'		=>	['log'],
 	    'modules'		=>	$modules,
-		'language'		=>	'en-US',
+		'language'		=>	$_configLanguage,
 		//'vendorPath'	=>	__DIR__.'/../../../app/vendor',
 		//'defaultRoute'	=>	'site/index',
 	    'components'	=>	[
