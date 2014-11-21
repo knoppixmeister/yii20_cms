@@ -13,7 +13,7 @@
 
 			$this->createTable('{{%languages}}',	[
 														'id' => Schema::TYPE_PK,
-														'url' => Schema::TYPE_STRING.'(255) NOT NULL',
+														'code' => Schema::TYPE_STRING.'(255) NOT NULL',
 														'local' => Schema::TYPE_STRING.'(255) NOT NULL',
 														'name' => Schema::TYPE_STRING.'(255) NOT NULL',
 														'default' => Schema::TYPE_SMALLINT.' NOT NULL DEFAULT 0',
@@ -21,7 +21,7 @@
 
 			$this->batchInsert(
 						'lang',
-						['url', 'local', 'name', 'default'],
+						['code', 'local', 'name', 'default'],
 						[
 							['en', 'en-EN', 'English', 0],
 							['ru', 'ru-RU', 'Русский', 1],
