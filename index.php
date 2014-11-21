@@ -1,7 +1,7 @@
 <?php
 	define('YII_APP', true);
 
-	@ini_set("display_errors", "0");
+	@ini_set("display_errors", "1");
 	//@date_default_timezone_set('Europe/...');
 
 	$ip = $_SERVER['REMOTE_ADDR'];
