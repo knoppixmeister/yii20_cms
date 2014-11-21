@@ -4,6 +4,8 @@
 	@ini_set("display_errors", "1");
 	//@date_default_timezone_set('Europe/...');
 
+	if(!defined('FULL_BASE_PATH')) define('FULL_BASE_PATH', __DIR__);
+
 	$ip = $_SERVER['REMOTE_ADDR'];
 	if(!defined('YII_DEBUG')) {
 		if(in_array($ip, ['::1', '127.0.0.1'])) define('YII_DEBUG', true);
