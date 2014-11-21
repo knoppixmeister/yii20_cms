@@ -14,5 +14,6 @@ Install process
 
 https://github.com/yiisoft/yii2/issues/5060#issuecomment-55859283
 
-	1. php composer.phar global require "fxp/composer-asset-plugin:1.0.*@dev"
-	2. php composer.phar update --dev (requires github account)
+	1. delete vendor folder & composer.lock file if exist
+	2. php composer.phar global require "fxp/composer-asset-plugin:1.0.*@dev"
+	3. php composer.phar update --dev (requires github account)
