@@ -4,6 +4,8 @@
 	$_langs = require __DIR__.'/languages.php';
 	$languages = implode('|', array_keys($_langs));
 
+	Yii::setAlias('user_modules', __DIR__.'/../../user_extensions/modules');
+
 	$_configLanguage = 'en-US';
 	foreach($_langs as $_lang_code => $_lang_vals) {
 		if($_lang_vals['default']) {
@@ -17,6 +19,16 @@
 			if($entry != '.' && $entry != ".." && is_dir(__DIR__."/../modules/".$entry)) {
 				$modules[$entry] =	[
 					'class'	=>	"app\\modules\\".$entry."\Module",
+				];
+			}
+		}
+	}
+
+	if(file_exists(Yii::getAlias('@user_modules')) && $dres = opendir(Yii::getAlias('@user_modules'))) {
+		while(false !== ($entry = readdir($dres))) {
+			if($entry != '.' && $entry != ".." && is_dir(Yii::getAlias('@user_modules/'.$entry))) {
+				$modules[$entry] =	[
+					'class'	=>	"user_modules\\".$entry."\Module",
 				];
 			}
 		}
@@ -81,17 +93,18 @@
 			],
 			'mailer'	=>	require __DIR__.'/mailer.php',
 			'log'		=>	[
-					            'traceLevel'	=>	YII_DEBUG ? 3 : 0,
-					            'targets'		=>	[
-														[
-															'class'		=>	'yii\log\FileTarget',
-															'levels'	=>	['error', 'warning'],
-														],
-													],
-							],
+				'traceLevel'	=>	YII_DEBUG ? 3 : 0,
+				'targets'		=>	[
+										[
+											'class'		=>	'yii\log\FileTarget',
+											'levels'	=>	['error', 'warning'],
+										],
+									],
+			],
 		],
 		'params'	=>	require __DIR__.'/params.php', 
 	];
+
 	/*
 	if(YII_ENV_DEV) {
 	    // configuration adjustments for 'dev' environment
@@ -99,4 +112,5 @@
 	    $config['modules']['debug']	=	'yii\debug\Module';
 	}
 	*/
+
 	return $config;
