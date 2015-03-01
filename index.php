@@ -19,11 +19,11 @@
 	if(!defined('YII_DEBUG') || !YII_DEBUG) {
 		@ini_set("display_errors", "0");
 	}
-
+	/*
 	ob_start(function($b) {
 		return preg_replace(['/\>[^\S ]+/s', '/[^\S ]+\</s', '/(\s)+/s'], ['>', '<', '\\1'], $b);
 	});
-
+	*/
 	require __DIR__.'/app/vendor/autoload.php';
 	require __DIR__.'/app/vendor/yiisoft/yii2/Yii.php';
 
